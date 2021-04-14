@@ -37,7 +37,7 @@ typedef struct WavHeader {
 	uint16_t bitDepth;				//Number of bits per sample
 	//data subchunk
 	uint8_t dataHeader[4];			//DATA header
-	uint32_t dataChumkSize;			//Size of data chunk
+	uint32_t dataChunkSize;			//Size of data chunk
 } WavHeader;
 
 #endif //WAVHEADER_H
