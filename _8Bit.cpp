@@ -8,9 +8,7 @@ void _8Bit::readFile(const std::string &filename) {
         file.read((char*)&wavHeader, sizeof(WavHeader));
 		buffer = new unsigned char[wavHeader.dataChunkSize];	
 		file.read((char*)buffer, wavHeader.dataChunkSize);
-		file.read((char*)&listHeader.LIST, sizeof(listHeader.LIST));
-		std::cout << listHeader.LIST << std::endl;
-		if (listHeader.LIST == "LIST") {	
+		if (checkForList()) {	
 			file.read((char*)&listHeader, sizeof(ListHeader));
 			for(int i = 0; !file.eof(); i++) {
 				list.push_back(List());

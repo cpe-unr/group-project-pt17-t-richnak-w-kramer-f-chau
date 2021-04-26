@@ -37,14 +37,14 @@ void fn(){
 int main() {
 	WavManager n;
 	std::vector<std::string> filenames;
-	filenames.push_back(_8bitM);
+	filenames.push_back(_8bitS);
 	n.populateVector(filenames);
 	
-	std::cout << n.wavs[0]->wavHeader.chunkSize << std::endl;
+	/*std::cout << n.wavs[0]->wavHeader.chunkSize << std::endl;
 	std::cout << n.wavs[0]->wavHeader.dataChunkSize << std::endl;
-	std::cout << n.wavs[0]->wavHeader.chunkSize - n.wavs[0]->wavHeader.dataChunkSize << std::endl;
+	std::cout << n.wavs[0]->wavHeader.chunkSize - n.wavs[0]->wavHeader.dataChunkSize << std::endl;*/
 	
-	/*std::cout << n.wavs[0]->list.size() << std::endl;
+	std::cout << n.wavs[0]->list.size() << std::endl;
 	
 	std::cout << n.wavs[0]->listHeader.LIST << std::endl;
 	std::cout << n.wavs[0]->listHeader.listChunkSize << std::endl;
@@ -53,7 +53,7 @@ int main() {
 		std::cout << r.infoID <<std::endl;
 		std::cout << r.infoSize <<std::endl;
 		std::cout << r.info <<std::endl;
-	}*/
+	}
 	
 	for (Wav *wav: n.wavs) {		
   		if(auto * a = dynamic_cast<_8Bit*>(wav)) {
