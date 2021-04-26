@@ -1,9 +1,11 @@
+//
+//Created by Tanner Richnak on 4/14/2021
+//
+
 #ifndef WAVHEADER_H
 #define WAVHEADER_H
 
-/* Author: Tanner Richnak
- * Date: 4/14/2021
- *
+/* 
  * This header description copied from https://docs.fileformat.com/audio/wav/ S
  * Positions	Sample Value	Description
  * 1 - 4		"RIFF"			Marks the file as a riff file.  Characters are each 1 byte long
@@ -23,21 +25,21 @@
  
 typedef struct WavHeader {
 	//RIFF Chunk
-	uint8_t RIFF[4]; 				//RIFF header
-	uint32_t chunkSize;				//RIFF chunk size
-	uint8_t WAVE[4];				//WAVE header
+	char RIFF[4]; 				//RIFF header
+	int chunkSize;				//RIFF chunk size
+	char WAVE[4];				//WAVE header
 	//fmt subchunk
-	uint8_t FMT[4];					//FMT header
-	uint32_t fmtChunkSize;			//Size of the fmt subchunk
-	uint16_t audioFormat;			//Audio format 1=PCM
-	uint16_t numChannels;			//Number of channels 1=mono 2=stereo
-	uint32_t sampleRate;			//Number of samples per second (Hz)
-	uint32_t byteRate;				//Number of bytes per second
-	uint16_t blockAlignment;		//Bytes per sample * Number of channels
-	uint16_t bitDepth;				//Number of bits per sample
+	char FMT[4];				//FMT header
+	int fmtChunkSize;			//Size of the fmt subchunk
+	short audioFormat;			//Audio format 1=PCM
+	short numChannels;			//Number of channels 1=mono 2=stereo
+	int sampleRate;				//Number of samples per second (Hz)
+	int byteRate;				//Number of bytes per second
+	short blockAlignment;		//Bytes per sample * Number of channels
+	short bitDepth;				//Number of bits per sample
 	//data subchunk
-	uint8_t dataHeader[4];			//DATA header
-	uint32_t dataChunkSize;			//Size of data chunk
+	char dataHeader[4];			//DATA header
+	int dataChunkSize;			//Size of data chunk
 } WavHeader;
 
 #endif //WAVHEADER_H
