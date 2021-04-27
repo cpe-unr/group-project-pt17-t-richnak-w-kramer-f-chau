@@ -6,6 +6,8 @@
 
 #include <string>
 
+//metadata subchunk
+
 typedef struct List {
 	char infoID[4];
 	int infoSize;

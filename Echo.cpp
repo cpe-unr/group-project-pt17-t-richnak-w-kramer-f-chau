@@ -1,15 +1,31 @@
 #include "Echo.h"
 
-	Echo::Echo(){
-		delay = 0;
-	}
+Echo::Echo(){
+	delay = 0;
+}
 
-	Echo::Echo(int newDelay): delay(newDelay){
-	}
-//check if its 8 or 16
-	void Echo::processBuffer(unsigned char* location, int bufferSize){
+Echo::Echo(int newDelay): delay(newDelay){
+}
 
-		for(int i; i < bufferSize; i++){
-			location[i] = (location[i] + location[i - delay])*.5;
-		}
+void Echo::processBuffer(unsigned char* buffer, int bufferSize){
+	float ogSignal;
+	float delayedSignal;
+	float val;
+	for(int i=0; i < bufferSize - delay; i++){
+		ogSignal = (float)(buffer[i] - 128;
+		delayedSignal = (float)(buffer[n+delay] - 128;
+		val = ogSignal * .5 + delayedSignal * .5 + 128;
+		buffer[i+delay] = (unsigned char)(round(val));
+}
+
+void Echo::processBuffer(signed short* buffer, int bufferSize){
+	float ogSignal;
+	float delayedSignal;
+	float val;
+	for(int i=0; i < bufferSize - delay; i++){
+		ogSignal = (float)(buffer[i]);
+		delayedSignal = (float)(buffer[n+delay]);
+		val = ogSignal * .5 + delayedSignal * .5;
+		buffer[i+delay] = (unsigned char)(round(val));
 	}
+}

@@ -7,7 +7,9 @@
 
 class Processor {
 public:
+
     virtual void processBuffer(unsigned char* buffer, int bufferSize) = 0;
+    virtual void processBuffer(signed short* buffer, int bufferSize) = 0;
 };
 
 

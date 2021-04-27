@@ -1,15 +1,17 @@
-#ifndef NOISEGATE_H
-#define NOISEGATE_H
+#ifndef NORMALIZATION_H
+#define NORMALIZATION_H
 
 #include <iostream>
-#include "Normalization.h"
+#include <cmath>
+#include "Processor.h"
 
-class Normalization(): public Processor{
+class Normalization: public Processor{
 
 	void processBuffer(unsigned char* buffer, int bufferSize) override;
+    void processBuffer(signed short* buffer, int bufferSize) override;
 }
 
 //find max and min loop through for loop
-//oldest dog function PA2
+
 
 #endif

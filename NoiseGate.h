@@ -14,6 +14,7 @@ public:
 	NoiseGate(float newThreshold);
 	float getThreshold();
 	void processBuffer(unsigned char* location, int bufferSize) override;
+	void processBuffer(signed short* buffer, int bufferSize) override;
 };
 
 #endif

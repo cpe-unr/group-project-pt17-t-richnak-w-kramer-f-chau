@@ -3,50 +3,24 @@
 
 #include <iostream>
 #include <string>
+#include "List.h"
 
-using namespace; 
+
+using namespace std; 
 
 class Modify{
-private:
-	string title;
-	string artist;
-	string album;
-	string genre;
-	int release;
-	int trackNum;
-	string comments;
-
 public:
 
-	Modify();
-	Modify(unsigned char* wavs,int index);
-	Modify(unsigned char* wavs,int index);
+	/**
+	 * @brief modifies data of specified list obj to user's input and updates the corresponding data length
+	 * 
+	 * @param metadataObj 
+	 * @param newMetadataString 
+	 */
 
-	string getTitle();
-	void setTitle(string);
+	void modifyMetadata(List* metadataObj, string newMetadataString);
 
-	string getArtist();
-	void setArtist(string);
-	
-	string getAlbum();
-	void setAlbum(string);
-	
-	string getGenre();
-	void setGenre(string);
-
-	int getRelease();
-	void setRelease();
-	
-	int getTrackNum();
-	void setTrackNum(int);
-
-	string getComments();
-	void setComments(string);
-	
-	
-
-
-
+	List createMetadata(char newInfoID[4]);
 }
 
 
