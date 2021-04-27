@@ -12,5 +12,4 @@ public:
     virtual void processBuffer(signed short* buffer, int bufferSize) = 0;
 };
 
-
 #endif

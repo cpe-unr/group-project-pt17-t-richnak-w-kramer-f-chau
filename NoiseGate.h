@@ -9,7 +9,6 @@ class NoiseGate: public Processor{
 	float threshold;
 
 public:
-
 	NoiseGate();
 	NoiseGate(float newThreshold);
 	float getThreshold();
