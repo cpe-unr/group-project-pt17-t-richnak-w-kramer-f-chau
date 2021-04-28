@@ -7,7 +7,7 @@ void Modify::modifyMetadata(List* metadataObj, string newMetadataString){
 }
 
 //Either this function returns List or adds List to the specified vector
-List createMetadata(char newInfoID[4]){
+List addMetadataSection(std::vector<List> list, char newInfoID[4]){
 	List *newList = new List; //Either this or add constructor to List.h to avoid using pointer
 	newList->infoID = newInfoID;
 }
