@@ -1,33 +1,34 @@
 //
-// Created by Keith Lancaster on 3/13/21.
+// Created by Tanner Richnak on 4/24/21.
 //
 
 #ifndef PROGRAMMING_ASSIGNMENT_3KL_WAV_H
 #define PROGRAMMING_ASSIGNMENT_3KL_WAV_H
 
-/*
- * This class is designed to work with PCM 8-bit mono wavefiles.
- * It makes many assumptions about the format of the wave as a result.
- * It will NOT work with stereo files or any other bit-depth than 8 bits.
- */
+
 #include "WavHeader.h"
 #include "ListHeader.h"
 #include "List.h"
+#include "WavAbs.h"
 #include <string>
 #include <vector>
 
-class Wav {
+template <typename T>
+class Wav : public WavAbs {
 public:
 	WavHeader wavHeader;
 	ListHeader listHeader;
 	bool hasListChunk = 0;
 	std::vector<List> list;
+	T* buffer = NULL;
 
-    virtual void readFile(const std::string &filename) = 0;
-    virtual void writeFile(const std::string &outFileName) = 0;   
+    void readFile(const std::string &filename) override;
+    void writeFile(const std::string &outFileName);   
     
-    virtual bool checkForList() = 0;
-    virtual int getBufferSize() const = 0;
+    bool checkForList();
+    int getBufferSize() const;
+    
+    //virtual ~Wav;
 };
 
 
