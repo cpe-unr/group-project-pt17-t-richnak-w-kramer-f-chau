@@ -13,7 +13,7 @@ public:
  	
  	virtual ~_16Bit();
 public:
-	unsigned short* buffer = NULL;
+	short* buffer = NULL;
 };
 
 #endif

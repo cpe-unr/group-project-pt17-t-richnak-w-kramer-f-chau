@@ -40,31 +40,41 @@ void fn(){
 int main() {
 	WavManager n;
 	std::vector<std::string> filenames;
-	filenames.push_back(_8bitS);
+	filenames.push_back(_16bitM);
 	n.populateVector(filenames);
 	
-	/*std::cout << n.wavs[0]->wavHeader.chunkSize << std::endl;
-	std::cout << n.wavs[0]->wavHeader.dataChunkSize << std::endl;
-	std::cout << n.wavs[0]->wavHeader.chunkSize - n.wavs[0]->wavHeader.dataChunkSize << std::endl;*/
+	for (WavAbs *wav: n.wavs) {
+		if(auto * a = dynamic_cast<Wav<short>*>(wav)) {
+			std::cout << a->wavHeader.chunkSize << std::endl;
+			std::cout << a->wavHeader.dataChunkSize << std::endl;
+			std::cout << a->wavHeader.chunkSize - a->wavHeader.dataChunkSize << std::endl;
 	
-	std::cout << n.wavs[0]->list.size() << std::endl;
-	
-	std::cout << n.wavs[0]->listHeader.LIST << std::endl;
-	std::cout << n.wavs[0]->listHeader.listChunkSize << std::endl;
-	std::cout << n.wavs[0]->listHeader.typeID << std::endl;
-	for(List r : n.wavs[0]->list) {
-		std::cout << r.infoID <<std::endl;
-		std::cout << r.infoSize <<std::endl;
-		std::cout << r.info <<std::endl;
+			std::cout << a->list.size() << std::endl;
+
+			std::cout << a->listHeader.LIST << std::endl;
+			std::cout << a->listHeader.listChunkSize << std::endl;
+			std::cout << a->listHeader.typeID << std::endl;
+			for(List r : a->list) {
+				std::cout << r.infoID <<std::endl;
+				std::cout << r.infoSize <<std::endl;
+				std::cout << r.info <<std::endl;
+			}
+			a->writeFile("something.wav");
+		}
 	}
 	
-	for (Wav *wav: n.wavs) {		
+	/*for (Wav *wav: n.wavs) {		
   		if(auto * a = dynamic_cast<_8Bit*>(wav)) {
 			a->writeFile("something.wav");
 		} else if(auto * a = dynamic_cast<_16Bit*>(wav)){
 			a->writeFile("something.wav");
    		}
+<<<<<<< HEAD
 	}
 		
+=======
+	}*/
+	
+>>>>>>> d8f4f749c8d4d8fdc57aaa0e30a05aaec89ef4e5
     return 0;
 }
