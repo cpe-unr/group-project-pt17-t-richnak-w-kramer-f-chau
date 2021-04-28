@@ -1,20 +1,6 @@
 #include "Normalization.h"
 
 
-Template<typename T>
-void Normalization::processBuffer(T* buffer, int bufferSize, MAX){
-    int greatestSignal = 0;
-    for(int i = 0; i < bufferSize; i++){
-        if (buffer[greatestSignal] < buffer[i]){
-                greatestSignal = i;
-        }
-    }
-    float amplitudeScale = MAX/buffer[greatestSignal];
-    for(int i = 0; i < bufferSize; i++){
-        buffer[i] = buffer[i] * round(amplitudeScale);
-    }
-}
-
 /**
  * @brief
  * 
