@@ -45,7 +45,7 @@ int main() {
 	std::cout << n.wavs[0]->wavHeader.chunkSize - n.wavs[0]->wavHeader.dataChunkSize << std::endl;*/
 	
 	std::cout << n.wavs[0]->list.size() << std::endl;
-	
+
 	std::cout << n.wavs[0]->listHeader.LIST << std::endl;
 	std::cout << n.wavs[0]->listHeader.listChunkSize << std::endl;
 	std::cout << n.wavs[0]->listHeader.typeID << std::endl;
