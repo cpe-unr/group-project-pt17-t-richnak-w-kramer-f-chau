@@ -4,6 +4,9 @@
 #include <fstream>
 #include "Wav.h"
 #include "WavManager.h"
+#include "Processor.h"
+#include "Echo.h"
+#include "Normalization.h"
 
 /**
  * \brief   The function bar.
@@ -62,6 +65,6 @@ int main() {
 			a->writeFile("something.wav");
    		}
 	}
-	
+		
     return 0;
 }

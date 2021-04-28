@@ -7,13 +7,14 @@ Echo::Echo(){
 Echo::Echo(int newDelay): delay(newDelay){
 }
 
-int Echo::getDelay(){
-	return delay;
-}
-
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ */
 void Echo::processBuffer(unsigned char* buffer, int bufferSize){
 
-	int delay = Echo::getDelay();
 	float ogSignal;
 	float delayedSignal;
 	float val;
@@ -25,10 +26,14 @@ void Echo::processBuffer(unsigned char* buffer, int bufferSize){
 	}
 }
 
-
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ */
 void Echo::processBuffer(signed short* buffer, int bufferSize){
 
-	int delay = Echo::getDelay();
 	float ogSignal;
 	float delayedSignal;
 	float val;
