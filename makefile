@@ -23,4 +23,4 @@ Echo.o: Echo.cpp Echo.h
 	g++ -c Echo.cpp -fpic
 
 clean:
-	rm *.o wavprocessor something.wav
+	rm *.o WavProcessor something.wav
