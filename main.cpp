@@ -42,31 +42,37 @@ int main() {
 	
 	for (WavAbs *wav: n.wavs) {
 		if(auto * a = dynamic_cast<Wav<short>*>(wav)) {
-			std::cout << a->wavHeader.chunkSize << std::endl;
-			std::cout << a->wavHeader.dataChunkSize << std::endl;
-			std::cout << a->wavHeader.chunkSize - a->wavHeader.dataChunkSize << std::endl;
-	
-			std::cout << a->list.size() << std::endl;
-
+			a->writeFile("something.wav");
+			
+			std::string x;
+			for(char n : a->list[0].infoID) {
+				x += n;
+			}
+			std::cout << x << std::endl;
+			
+			/*std::cout << a->wavHeader.WAVE << std::endl;
 			std::cout << a->listHeader.LIST << std::endl;
 			std::cout << a->listHeader.listChunkSize << std::endl;
 			std::cout << a->listHeader.typeID << std::endl;
 			for(List r : a->list) {
-				std::cout << r.infoID <<std::endl;
-				std::cout << r.infoSize <<std::endl;
-				std::cout << r.info <<std::endl;
-			}
-			a->writeFile("something.wav");
+				std::cout << r.infoID << std::endl;
+				std::cout << r.infoSize << std::endl;
+				std::cout << r.info << std::endl;
+			}*/
+		} else if(auto * a = dynamic_cast<Wav<unsigned char>*>(wav)) {
+			a->writeFile("something.wav");	
+					
+			/*std::cout << a->wavHeader.WAVE << std::endl;
+			std::cout << a->listHeader.LIST << std::endl;
+			std::cout << a->listHeader.listChunkSize << std::endl;
+			std::cout << a->listHeader.typeID << std::endl;
+			for(List r : a->list) {
+				std::cout << r.infoID << std::endl;
+				std::cout << r.infoSize << std::endl;
+				std::cout << r.info << std::endl;
+			}*/
 		}
 	}
-	
-	/*for (Wav *wav: n.wavs) {		
-  		if(auto * a = dynamic_cast<_8Bit*>(wav)) {
-			a->writeFile("something.wav");
-		} else if(auto * a = dynamic_cast<_16Bit*>(wav)){
-			a->writeFile("something.wav");
-   		}
-	}*/
-	
+
     return 0;
 }
