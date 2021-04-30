@@ -21,14 +21,22 @@ public:
 	bool hasListChunk = 0;
 	std::vector<List> list;
 	T* buffer = NULL;
-
+public:
     void readFile(const std::string &filename) override;
     void writeFile(const std::string &outFileName);   
     
     bool checkForList();
     int getBufferSize() const;
+    T *getBuffer() const;
+    WavHeader getWavHeader() const;
+    ListHeader getListHeader() const;
     
-    //virtual ~Wav;
+    
+    virtual ~Wav<T>(){
+		if(buffer != NULL) {
+	   		delete[] buffer;
+		}
+	}
 };
 
 

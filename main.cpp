@@ -37,20 +37,25 @@ void fn(){
 int main() {
 	WavManager n;
 	std::vector<std::string> filenames;
-	filenames.push_back(_16bitM);
+	filenames.push_back(_8bitM);
+	//filenames.push_back(_8bitS);
+	//filenames.push_back(_16bitM);
+	//filenames.push_back(_16bitS);
+	
 	n.populateVector(filenames);
 	
 	for (WavAbs *wav: n.wavs) {
 		if(auto * a = dynamic_cast<Wav<short>*>(wav)) {
 			a->writeFile("something.wav");
 			
-			std::string x;
+			//Parse through char[4] variables
+			/*std::string x;
 			for(char n : a->list[0].infoID) {
 				x += n;
 			}
-			std::cout << x << std::endl;
+			std::cout << x << std::endl;*/
 			
-			/*std::cout << a->wavHeader.WAVE << std::endl;
+			std::cout << a->wavHeader.bitDepth << std::endl;
 			std::cout << a->listHeader.LIST << std::endl;
 			std::cout << a->listHeader.listChunkSize << std::endl;
 			std::cout << a->listHeader.typeID << std::endl;
@@ -58,11 +63,12 @@ int main() {
 				std::cout << r.infoID << std::endl;
 				std::cout << r.infoSize << std::endl;
 				std::cout << r.info << std::endl;
-			}*/
+			}
+			std::cout << "======================" << std::endl;
 		} else if(auto * a = dynamic_cast<Wav<unsigned char>*>(wav)) {
 			a->writeFile("something.wav");	
-					
-			/*std::cout << a->wavHeader.WAVE << std::endl;
+			
+			std::cout << a->wavHeader.bitDepth << std::endl;
 			std::cout << a->listHeader.LIST << std::endl;
 			std::cout << a->listHeader.listChunkSize << std::endl;
 			std::cout << a->listHeader.typeID << std::endl;
@@ -70,7 +76,8 @@ int main() {
 				std::cout << r.infoID << std::endl;
 				std::cout << r.infoSize << std::endl;
 				std::cout << r.info << std::endl;
-			}*/
+			}
+			std::cout << "======================" << std::endl;
 		}
 	}
 
