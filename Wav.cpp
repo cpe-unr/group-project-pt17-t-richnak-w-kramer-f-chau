@@ -1,3 +1,8 @@
+//
+// Created by Tanner Richnak on 4/24/21.
+//
+
+
 #include "Wav.h"
 #include <fstream>
 #include <iostream>
@@ -56,18 +61,11 @@ bool Wav<T>::checkForList() {
 }
 
 template <typename T>
-int Wav<T>::getBufferSize () const {
-	return wavHeader.dataChunkSize;
-}
-
-template <typename T>
 T *Wav<T>::getBuffer() const {
 	return buffer;
 }
 
 template <typename T>
-WavHeader Wav<T>::getWavHeader() const {
-	return wavHeader;
+std::vector<List> Wav<T>::getListVector() const {
+	return list;
 }
-
-

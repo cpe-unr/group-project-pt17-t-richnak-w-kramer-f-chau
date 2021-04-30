@@ -38,13 +38,13 @@ int main() {
 	WavManager n;
 	std::vector<std::string> filenames;
 	filenames.push_back(_8bitM);
-	//filenames.push_back(_8bitS);
-	//filenames.push_back(_16bitM);
-	//filenames.push_back(_16bitS);
+	filenames.push_back(_8bitS);
+	filenames.push_back(_16bitM);
+	filenames.push_back(_16bitS);
 	
 	n.populateVector(filenames);
 	
-	for (WavAbs *wav: n.wavs) {
+	for (IReadable *wav: n.wavs) {
 		if(auto * a = dynamic_cast<Wav<short>*>(wav)) {
 			a->writeFile("something.wav");
 			
