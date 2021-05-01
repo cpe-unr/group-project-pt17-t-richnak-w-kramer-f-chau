@@ -55,6 +55,8 @@ int main() {
 			}
 			std::cout << x << std::endl;*/
 			
+			std::cout << a->inFile << std::endl;
+			
 			std::cout << a->wavHeader.bitDepth << std::endl;
 			std::cout << a->listHeader.LIST << std::endl;
 			std::cout << a->listHeader.listChunkSize << std::endl;
@@ -67,6 +69,9 @@ int main() {
 			std::cout << "======================" << std::endl;
 		} else if(auto * a = dynamic_cast<Wav<unsigned char>*>(wav)) {
 			a->writeFile("something.wav");	
+			
+			
+			std::cout << a->inFile << std::endl;
 			
 			std::cout << a->wavHeader.bitDepth << std::endl;
 			std::cout << a->listHeader.LIST << std::endl;

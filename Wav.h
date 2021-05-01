@@ -25,7 +25,9 @@ public:
 	bool hasListChunk = 0;
 	std::vector<List> list;
 	T* buffer = NULL;
+	std::string inFile;
 public:
+	Wav(std::string inFile);
 	/**
 	 * Function to read data from an inputted .wav file
 	 * @param filename - the name of the .wav file being read from; overrides from IReadable

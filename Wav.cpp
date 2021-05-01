@@ -8,6 +8,11 @@
 #include <iostream>
 
 template <typename T>
+Wav<T>::Wav(std::string inFile) {
+	this->inFile = inFile;
+}
+
+template <typename T>
 void Wav<T>::readFile(const std::string &filename) {
 	std::ifstream file(filename,std::ios::binary | std::ios::in);
 	if(file.is_open()){

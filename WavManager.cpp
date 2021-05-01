@@ -14,11 +14,11 @@ void WavManager::populateVector(std::vector<std::string> filenames) {
 			file.close();
 		}
 		if (n.bitDepth == 8) {
-			IReadable* a = new Wav<unsigned char>;
+			IReadable* a = new Wav<unsigned char>(filename);
 			a->readFile(filename);
 			wavs.push_back(a);
 		} else if (n.bitDepth == 16) {
-			IReadable* a = new Wav<short>;
+			IReadable* a = new Wav<short>(filename);
 			a->readFile(filename);
 			wavs.push_back(a);
 		}
