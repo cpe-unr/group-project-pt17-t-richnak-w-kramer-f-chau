@@ -4,14 +4,14 @@ NoiseGate::NoiseGate(){
 	threshold = 100;
 }
 
-NoiseGate::NoiseGate(float newThreshold): threshold(newThreshold){
+NoiseGate::NoiseGate(float newThreshold): threshold((newThreshold*128)/100){
 }
 
 
 void NoiseGate::processBuffer(unsigned char* buffer, int bufferSize){
 
-	int min = 128 - threshold;
-	int max = 128 + threshold;
+	float min = 128 - threshold;
+	float max = 128 + threshold;
 
 	for(int i = 0; i < bufferSize; i++){
 		if(buffer[i] > min && buffer[i] < max){
