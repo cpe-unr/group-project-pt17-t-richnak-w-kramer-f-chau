@@ -1,5 +1,5 @@
-#ifndef NORMALIZATION_H
-#define NORMALIZATION_H
+#ifndef WRITE_CSV_H
+#define WRITE_CSV_H
 
 #include <iostream>
 #include <fstream>
@@ -9,7 +9,7 @@
 
 class WriteToCSV{
 
-bool writeDataToFile(std::vector<wav*> wavFiles);
+bool writeDataToFile(std::vector<Wav*> wavFiles);
 
 
 };

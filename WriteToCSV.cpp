@@ -2,7 +2,7 @@
 
 
 
-bool writeDataToFile(std::string CSVfile_name, std::vector<std::string> fileNames, std::vector<Wav*> wavFiles){
+bool WriteToCSV::writeDataToFile(std::string CSVfile_name, std::vector<std::string> fileNames, std::vector<Wav*> wavFiles){
 
     std::ofstream file;
     file.open(CSVfile_name);
@@ -15,7 +15,7 @@ bool writeDataToFile(std::string CSVfile_name, std::vector<std::string> fileName
 
     file << std::endl;
 
-    for(std::wavFile; wavFiles){
+    for(std::wavFile : wavFiles){
         file << wavFile->listHeader.listChunkSize << ","; //size of chunk in bytes
     }
     file << std::endl
