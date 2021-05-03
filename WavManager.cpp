@@ -1,7 +1,9 @@
+//
+//Created by Tanner Richnak on 4/24/21
+//
+
 #include "WavManager.h"
 #include <fstream>
-
-WavManager::WavManager() {}
 
 void WavManager::populateVector(std::vector<std::string> filenames) {
 	for (std::string filename : filenames) {
@@ -12,11 +14,11 @@ void WavManager::populateVector(std::vector<std::string> filenames) {
 			file.close();
 		}
 		if (n.bitDepth == 8) {
-			WavAbs* a = new Wav<unsigned char>;
+			IReadable* a = new Wav<unsigned char>(filename);
 			a->readFile(filename);
 			wavs.push_back(a);
 		} else if (n.bitDepth == 16) {
-			WavAbs* a = new Wav<short>;
+			IReadable* a = new Wav<short>(filename);
 			a->readFile(filename);
 			wavs.push_back(a);
 		}
