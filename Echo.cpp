@@ -8,9 +8,9 @@ Echo::Echo(int newDelay): delay(newDelay){
 }
 
 /**
- * @brief 
+ * @brief This function creates delayed signals, each one with less amplitude than the one before.
  * 
- * @param buffer 
+ * @param buffer unsigned char* buffer of the audio signals for 8 byte audio file 
  * @param bufferSize 
  */
 void Echo::processBuffer(unsigned char* buffer, int bufferSize){
@@ -27,9 +27,9 @@ void Echo::processBuffer(unsigned char* buffer, int bufferSize){
 }
 
 /**
- * @brief 
+ * @brief This function creates delayed signals, each one with less amplitude than the one before.
  * 
- * @param buffer 
+ * @param buffer signed short* buffer of the audio signals for a 16 byte audio file
  * @param bufferSize 
  */
 void Echo::processBuffer(signed short* buffer, int bufferSize){

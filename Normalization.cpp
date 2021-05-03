@@ -1,9 +1,9 @@
 #include "Normalization.h"
 
 /**
- * @brief
+ * @brief This function finds the greatest signal and then multiples all the signals at the highest scale based on the max signal divided by the greatest signal in the buffer
  * 
- * @param buffer 
+ * @param buffer unsigned char* buffer of the audio signals for 8 byte audio file 
  * @param bufferSize 
  */
 void Normalization::processBuffer(unsigned char* buffer, int bufferSize){
@@ -20,9 +20,9 @@ void Normalization::processBuffer(unsigned char* buffer, int bufferSize){
 }
 
 /**
- * @brief 
+ * @brief This function finds the greatest signal and then multiples all the signals at the highest scale based on the max signal divided by the greatest signal in the buffer
  * 
- * @param buffer 
+ * @param buffer signed short* buffer of the audio signals for a 16 byte audio file
  * @param bufferSize 
  */
 void Normalization::processBuffer(signed short* buffer, int bufferSize){
