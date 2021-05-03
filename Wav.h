@@ -35,7 +35,6 @@ public:
     bool checkForList();
     int getBufferSize() const;
     T *getBuffer() const;
-
     std::vector<List> getListVector() const;
     
     /**

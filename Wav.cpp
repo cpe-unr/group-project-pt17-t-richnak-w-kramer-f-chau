@@ -83,7 +83,7 @@ bool Wav<T>::checkForList() {
 	 * @breif Returns the size of the data buffer in bytes
 	 */
 template <typename T>
-int getBufferSize() const {
+int Wav<T>::getBufferSize() const {
 	return wavHeader.dataChunkSize;
 }
     /**
