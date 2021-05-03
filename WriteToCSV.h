@@ -9,7 +9,7 @@
 
 class WriteToCSV{
 
-bool writeDataToFile(std::vector<Wav*> wavFiles);
+bool writeDataToFile(std::string CSVfile_name, std::vector<std::string> fileNames, std::vector<IReadable*> wavFiles);
 
 
 };
