@@ -6,6 +6,7 @@
 #include "Wav.h"
 #include "WavManager.h"
 #include "WavConsole.h"
+#include "libprocessors.h"
 /**
  * \brief   The function bar.
  *
