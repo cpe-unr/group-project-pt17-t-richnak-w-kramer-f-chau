@@ -5,6 +5,12 @@
 #include "WavManager.h"
 #include <fstream>
 
+
+	/**
+	 * @breif Creates Wav objects and calls the read function for each file in the filenames vector
+	 *
+	 * @param filenames - vector of names of .wav files
+	 */
 void WavManager::populateVector(std::vector<std::string> filenames) {
 	for (std::string filename : filenames) {
 		WavHeader n;

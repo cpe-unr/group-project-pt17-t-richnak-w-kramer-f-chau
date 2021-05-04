@@ -7,15 +7,14 @@
 #include <vector>
 
 
-using namespace std; 
 
 class Modify{
 public:
 
-	void modifyMetadata(List* metadataObj, string newMetadataString);
+	void modifyMetadata(List* metadataObj, std::string newMetadataString);
 
-	void createMetadata(char newInfoID[4]);
-}
+	void addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo);
+};
 
 
 #endif

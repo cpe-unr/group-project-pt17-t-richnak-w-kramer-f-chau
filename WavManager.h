@@ -18,10 +18,6 @@ class WavManager {
 public:
 	std::vector<IReadable*> wavs;
 public:
-	/**
-	 * Creates Wav objects and calls the read function for each file in the filenames vector
-	 * @param filenames - vector of names of .wav files
-	 */
 	void populateVector(std::vector<std::string> filenames);
 
 };

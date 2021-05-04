@@ -7,11 +7,20 @@
 #include <fstream>
 #include <iostream>
 
+	/**
+	 * @breif Constructor for the Wav class
+	 *
+	 * @param inFile - name of the .wav file being read from
+	 */	
 template <typename T>
 Wav<T>::Wav(std::string inFile) {
 	this->inFile = inFile;
 }
-
+	/**
+	 * @breif Function to read data from an inputted .wav file
+	 *
+	 * @param filename - the name of the .wav file being read from; overrides from IReadable
+	 */
 template <typename T>
 void Wav<T>::readFile(const std::string &filename) {
 	std::ifstream file(filename,std::ios::binary | std::ios::in);
@@ -34,7 +43,11 @@ void Wav<T>::readFile(const std::string &filename) {
 		file.close();
 	}
 }
-
+	/**
+	 * @breif Function to write data to a wav file
+	 *
+	 * @param outFileName - the name of the .wav file being written to
+	 */
 template <typename T>
 void Wav<T>::writeFile(const std::string &outFileName) {
 	std::ofstream outFile(outFileName, std::ios::out | std::ios::binary);
@@ -50,7 +63,9 @@ void Wav<T>::writeFile(const std::string &outFileName) {
     }
     outFile.close();
 }
-
+    /**
+	 * @breif Determines if the wav file has a List subchunk
+	 */
 template <typename T>
 bool Wav<T>::checkForList() {
 	std::string header;
@@ -64,12 +79,23 @@ bool Wav<T>::checkForList() {
 		return 0;
 	}
 }
-
+    /**
+	 * @breif Returns the size of the data buffer in bytes
+	 */
+template <typename T>
+int Wav<T>::getBufferSize() const {
+	return wavHeader.dataChunkSize;
+}
+    /**
+	 * @breif Returns a pointer to the data buffer
+	 */
 template <typename T>
 T *Wav<T>::getBuffer() const {
 	return buffer;
 }
-
+    /**
+	 * @breif Returns the vector of List objects
+	 */
 template <typename T>
 std::vector<List> Wav<T>::getListVector() const {
 	return list;
