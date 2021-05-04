@@ -8,7 +8,7 @@
 #include <iostream>
 
 	/**
-	 * @breif Constructor for the Wav class
+	 * @brief Constructor for the Wav class
 	 *
 	 * @param inFile - name of the .wav file being read from
 	 */	
@@ -17,7 +17,7 @@ Wav<T>::Wav(std::string inFile) {
 	this->inFile = inFile;
 }
 	/**
-	 * @breif Function to read data from an inputted .wav file
+	 * @brief Function to read data from an inputted .wav file
 	 *
 	 * @param filename - the name of the .wav file being read from; overrides from IReadable
 	 */
@@ -44,7 +44,7 @@ void Wav<T>::readFile(const std::string &filename) {
 	}
 }
 	/**
-	 * @breif Function to write data to a wav file
+	 * @brief Function to write data to a wav file
 	 *
 	 * @param outFileName - the name of the .wav file being written to
 	 */
@@ -64,7 +64,7 @@ void Wav<T>::writeFile(const std::string &outFileName) {
     outFile.close();
 }
     /**
-	 * @breif Determines if the wav file has a List subchunk
+	 * @brief Determines if the wav file has a List subchunk
 	 */
 template <typename T>
 bool Wav<T>::checkForList() {
@@ -80,21 +80,21 @@ bool Wav<T>::checkForList() {
 	}
 }
     /**
-	 * @breif Returns the size of the data buffer in bytes
+	 * @brief Returns the size of the data buffer in bytes
 	 */
 template <typename T>
 int Wav<T>::getBufferSize() const {
 	return wavHeader.dataChunkSize;
 }
     /**
-	 * @breif Returns a pointer to the data buffer
+	 * @brief Returns a pointer to the data buffer
 	 */
 template <typename T>
 T *Wav<T>::getBuffer() const {
 	return buffer;
 }
     /**
-	 * @breif Returns the vector of List objects
+	 * @brief Returns the vector of List objects
 	 */
 template <typename T>
 std::vector<List> Wav<T>::getListVector() const {

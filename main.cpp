@@ -7,34 +7,15 @@
 #include "WavManager.h"
 #include "WavConsole.h"
 #include "libprocessors.h"
-/**
- * \brief   The function bar.
- *
- * \details This function does something which is doing nothing. So this text
- *          is totally senseless and you really do not need to read this,
- *          because this text is basically saying nothing.
- *
- * \note    This text shall only show you, how such a \"note\" section
- *          is looking. There is nothing which really needs your notice,
- *          so you do not really need to read this section.
- *
- * \param[in]     a    Description of parameter a.
- * \param[out]    b    Description of the parameter b.
- * \param[in,out] c    Description of the parameter c.
- *
- * \return        The error return code of the function.
- *
- * \retval        ERR_SUCCESS    The function is successfully executed
- * \retval        ERR_FAILURE    An error occurred
- */
+
 const std::string _8bitM = "yes-8bit-mono.wav";
 const std::string _8bitS = "yes-8-bit-stereo.wav";
 const std::string _16bitM = "yes-16-bit-mono.wav";
 const std::string _16bitS = "yes-26-bit-stereo.wav";
  
-void fn(){
-
-}
+/**
+ * \brief   This function initializes and runs the WavConsole. Most of the direct user-facing behavior is encapsulated within that class, so the main function is pretty minimalist. 
+ */
 
 int main() { //if you're testing anything else, either comment my stuff out or add your stuff before mine - but don't delete this outright   
 WavConsole wc;

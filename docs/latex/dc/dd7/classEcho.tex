@@ -1,0 +1,129 @@
+\hypertarget{classEcho}{}\section{Echo Class Reference}
+\label{classEcho}\index{Echo@{Echo}}
+
+
+Inheritance diagram for Echo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{d1/dd3/classEcho__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Echo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{da/d44/classEcho__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEcho_a28d71de619dda9e6e51567a04bfb60d6}\label{classEcho_a28d71de619dda9e6e51567a04bfb60d6}} 
+{\bfseries Echo} (int new\+Delay)
+\item 
+void \hyperlink{classEcho_ae915d9d4065a34411d18791a5ae9006b}{process\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This function creates delayed signals, each one with less amplitude than the one before. \end{DoxyCompactList}\item 
+void \hyperlink{classEcho_a3c62f947fd0f9ef063269ed2ca4fab8e}{process\+Buffer} (signed short $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This function creates delayed signals, each one with less amplitude than the one before. \end{DoxyCompactList}\item 
+void \hyperlink{classEcho_ab2dcc623d727179be1dcb8ac34a8453b}{process\+Stereo\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em For each of the left and right signals of the buffer of the stereo audio file, this function creates delayed signals, each one with less amplitude than the one before. \end{DoxyCompactList}\item 
+void \hyperlink{classEcho_a20e6822ef9fc01f0afec9cb8b890a70c}{process\+Stereo\+Buffer} (signed short $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em For each of the left and right signals of the buffer of the stereo audio file, this function creates delayed signals, each one with less amplitude than the one before. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEcho_ae915d9d4065a34411d18791a5ae9006b}\label{classEcho_ae915d9d4065a34411d18791a5ae9006b}} 
+\index{Echo@{Echo}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Echo\+::process\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function creates delayed signals, each one with less amplitude than the one before. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & unsigned char$\ast$ buffer of the audio signals for 8 bit mono audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classEcho_a3c62f947fd0f9ef063269ed2ca4fab8e}\label{classEcho_a3c62f947fd0f9ef063269ed2ca4fab8e}} 
+\index{Echo@{Echo}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Echo\+::process\+Buffer (\begin{DoxyParamCaption}\item[{signed short $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function creates delayed signals, each one with less amplitude than the one before. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & signed short$\ast$ buffer of the audio signals for a 16 bit mono audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classEcho_ab2dcc623d727179be1dcb8ac34a8453b}\label{classEcho_ab2dcc623d727179be1dcb8ac34a8453b}} 
+\index{Echo@{Echo}!process\+Stereo\+Buffer@{process\+Stereo\+Buffer}}
+\index{process\+Stereo\+Buffer@{process\+Stereo\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Stereo\+Buffer()}{processStereoBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Echo\+::process\+Stereo\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+For each of the left and right signals of the buffer of the stereo audio file, this function creates delayed signals, each one with less amplitude than the one before. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & unsigned char$\ast$ buffer of the audio signals for 8 bit stereo audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classEcho_a20e6822ef9fc01f0afec9cb8b890a70c}\label{classEcho_a20e6822ef9fc01f0afec9cb8b890a70c}} 
+\index{Echo@{Echo}!process\+Stereo\+Buffer@{process\+Stereo\+Buffer}}
+\index{process\+Stereo\+Buffer@{process\+Stereo\+Buffer}!Echo@{Echo}}
+\subsubsection{\texorpdfstring{process\+Stereo\+Buffer()}{processStereoBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Echo\+::process\+Stereo\+Buffer (\begin{DoxyParamCaption}\item[{signed short $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+For each of the left and right signals of the buffer of the stereo audio file, this function creates delayed signals, each one with less amplitude than the one before. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & signed short$\ast$ buffer of the audio signals for a 16 bit stereo audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Echo.\+h\item 
+Echo.\+cpp\end{DoxyCompactItemize}

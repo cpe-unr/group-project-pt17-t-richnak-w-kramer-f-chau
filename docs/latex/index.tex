@@ -1,0 +1,27 @@
+P\+T17 is Will Kramer, Tanner Richnak, Fiorina Chau
+
+{\bfseries Responsibilities}
+
+Will\+: UI (\hyperlink{classWavConsole}{Wav\+Console}) Tanner\+: W\+AV and associated classes Fiorina\+: Processing, C\+SV writing, metadata editing
+
+{\bfseries Challenges}
+
+Navigating the new makefile and git concepts introduced in this project proved difficult at times, especially manipulating the libraries and coordinating commits/pushes/pulls.
+
+Research on the W\+AV file format for file I/O and processing was also a challenge, but one that was eventually solidly overcome -\/ the whole team seems to now have a solid grasp of the W\+AV file structure.
+
+{\bfseries Design}
+
+The W\+AV is split into three chunks\+: the \hyperlink{structWavHeader}{Wav\+Header}, which contains the leading information; the buffer, which contains the actual audio, and the list vector, which contains \hyperlink{structList}{List} elements that comprise the metadata for the W\+AV file.
+
+\hyperlink{classProcessor}{Processor} is the base class for classes that directly modify the buffer, of which we\textquotesingle{}ve included three\+: \hyperlink{classNormalization}{Normalization}, \hyperlink{classNoiseGate}{Noise\+Gate}, and \hyperlink{classEcho}{Echo}. For \hyperlink{classNoiseGate}{Noise\+Gate} and \hyperlink{classEcho}{Echo}, a numerical parameter can be specified to give the noise threshold and echo delay, respectively.
+
+\hyperlink{classModify}{Modify} is the class assigned to manipulate the list vector; its function modify\+Metadata is used to edit an individual value.
+
+\hyperlink{classWriteToCSV}{Write\+To\+C\+SV} is the class that handles well, well, writing the files and their metadata to a C\+SV file.
+
+UI is handled through the \hyperlink{classWavConsole}{Wav\+Console} class and specifically through the function run\+Console(), which hosts the above classes, each of which is encapsulated to take on a specific requirement.
+
+The full diagram is as follows.
+
+image\+:\+:7ca52389.\+pdf\mbox{[}\mbox{]} 

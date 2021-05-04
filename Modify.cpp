@@ -6,9 +6,10 @@
  * @param metadataObj object that will be modified
  * @param newMetadataString User Input
  */
-void Modify::modifyMetadata(List* metadataObj, std::string newMetadataString){
+List* Modify::modifyMetadata(List* metadataObj, std::string newMetadataString){
 	metadataObj->infoSize = newMetadataString.length();
 	metadataObj->info = &newMetadataString[0];
+	return metadataObj;
 }
 
 //Either this function returns List or adds List to the specified vector

@@ -1,0 +1,129 @@
+\hypertarget{classNoiseGate}{}\section{Noise\+Gate Class Reference}
+\label{classNoiseGate}\index{Noise\+Gate@{Noise\+Gate}}
+
+
+Inheritance diagram for Noise\+Gate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{d5/d39/classNoiseGate__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Noise\+Gate\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{d8/da9/classNoiseGate__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNoiseGate_aecd2507a2de086259c70047c2fdcbb28}\label{classNoiseGate_aecd2507a2de086259c70047c2fdcbb28}} 
+{\bfseries Noise\+Gate} (float new\+Threshold)
+\item 
+void \hyperlink{classNoiseGate_acab8baa73ab66ee5c377631c2c1f3c72}{process\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This function sets any signals that fall within the threshold area to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classNoiseGate_a7fff3386cd56cb96c60ccec17ec6afd0}{process\+Buffer} (signed short $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em This function sets any signals that fall within the threshold area to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classNoiseGate_aeb214c7a4183ee24ef073a3e5c029f94}{process\+Stereo\+Buffer} (unsigned char $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em For each of the left and right signals of the buffer in the stereo file, this function sets any signals that fall within the threshold area to 0. \end{DoxyCompactList}\item 
+void \hyperlink{classNoiseGate_a95327c88365a0371c127b9c63bbe56bc}{process\+Stereo\+Buffer} (signed short $\ast$buffer, int buffer\+Size) override
+\begin{DoxyCompactList}\small\item\em For each of the left and right signals of the buffer in the stereo audio file, this function sets any signals that fall within the threshold area to 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classNoiseGate_acab8baa73ab66ee5c377631c2c1f3c72}\label{classNoiseGate_acab8baa73ab66ee5c377631c2c1f3c72}} 
+\index{Noise\+Gate@{Noise\+Gate}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Noise\+Gate@{Noise\+Gate}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Noise\+Gate\+::process\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function sets any signals that fall within the threshold area to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & unsigned char$\ast$ buffer of the audio signals for 8 bit mono audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classNoiseGate_a7fff3386cd56cb96c60ccec17ec6afd0}\label{classNoiseGate_a7fff3386cd56cb96c60ccec17ec6afd0}} 
+\index{Noise\+Gate@{Noise\+Gate}!process\+Buffer@{process\+Buffer}}
+\index{process\+Buffer@{process\+Buffer}!Noise\+Gate@{Noise\+Gate}}
+\subsubsection{\texorpdfstring{process\+Buffer()}{processBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Noise\+Gate\+::process\+Buffer (\begin{DoxyParamCaption}\item[{signed short $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+This function sets any signals that fall within the threshold area to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & signed short$\ast$ buffer of the audio signals for a 16 bit mono audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classNoiseGate_aeb214c7a4183ee24ef073a3e5c029f94}\label{classNoiseGate_aeb214c7a4183ee24ef073a3e5c029f94}} 
+\index{Noise\+Gate@{Noise\+Gate}!process\+Stereo\+Buffer@{process\+Stereo\+Buffer}}
+\index{process\+Stereo\+Buffer@{process\+Stereo\+Buffer}!Noise\+Gate@{Noise\+Gate}}
+\subsubsection{\texorpdfstring{process\+Stereo\+Buffer()}{processStereoBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Noise\+Gate\+::process\+Stereo\+Buffer (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+For each of the left and right signals of the buffer in the stereo file, this function sets any signals that fall within the threshold area to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & unsigned char$\ast$ buffer of the audio signals for 8 bit stereo audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+\mbox{\Hypertarget{classNoiseGate_a95327c88365a0371c127b9c63bbe56bc}\label{classNoiseGate_a95327c88365a0371c127b9c63bbe56bc}} 
+\index{Noise\+Gate@{Noise\+Gate}!process\+Stereo\+Buffer@{process\+Stereo\+Buffer}}
+\index{process\+Stereo\+Buffer@{process\+Stereo\+Buffer}!Noise\+Gate@{Noise\+Gate}}
+\subsubsection{\texorpdfstring{process\+Stereo\+Buffer()}{processStereoBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Noise\+Gate\+::process\+Stereo\+Buffer (\begin{DoxyParamCaption}\item[{signed short $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+For each of the left and right signals of the buffer in the stereo audio file, this function sets any signals that fall within the threshold area to 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & signed short$\ast$ buffer of the audio signals for a 16 bit stereo audio file \\
+\hline
+{\em buffer\+Size} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classProcessor}{Processor}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Noise\+Gate.\+h\item 
+Noise\+Gate.\+cpp\end{DoxyCompactItemize}

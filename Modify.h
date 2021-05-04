@@ -11,7 +11,7 @@
 class Modify{
 public:
 
-	void modifyMetadata(List* metadataObj, std::string newMetadataString);
+	List* modifyMetadata(List* metadataObj, std::string newMetadataString);
 
 	void addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo);
 };

@@ -1,0 +1,78 @@
+\hypertarget{classWavConsole}{}\section{Wav\+Console Class Reference}
+\label{classWavConsole}\index{Wav\+Console@{Wav\+Console}}
+
+
+Collaboration diagram for Wav\+Console\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{de/dee/classWavConsole__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classWavConsole_af15680c1257375a6f687ad5c4c0b9b0c}{add\+Command} (std\+::string name, std\+::string help\+Text)
+\begin{DoxyCompactList}\small\item\em This function pushes a new command to the vector of commands. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWavConsole_aef531f754faaa5592d78e15e46feb768}\label{classWavConsole_aef531f754faaa5592d78e15e46feb768}} 
+void \hyperlink{classWavConsole_aef531f754faaa5592d78e15e46feb768}{print\+Commands} ()
+\begin{DoxyCompactList}\small\item\em This function prints the name of each valid console command to show the user what options are available. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::experimental\+::filesystem\+::path $>$ \hyperlink{classWavConsole_ae5ee40c484223159f58d2758c0dba340}{pull\+Filenames} (std\+::string directory)
+\begin{DoxyCompactList}\small\item\em This function uses a directory\+\_\+iterator to get the names of every file in the user-\/inputted directory. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classWavConsole_af1b08107ff8d69c7515d719b7b88a164}\label{classWavConsole_af1b08107ff8d69c7515d719b7b88a164}} 
+void \hyperlink{classWavConsole_af1b08107ff8d69c7515d719b7b88a164}{run\+Console} ()
+\begin{DoxyCompactList}\small\item\em This function is the main interface with the user. It guides the user through the use of the W\+AV managment and processing system and calls classes to process, edit, read, and write as required. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWavConsole_adcec7b4b592a3b2fa08c566c7a409ac6}\label{classWavConsole_adcec7b4b592a3b2fa08c566c7a409ac6}} 
+\hyperlink{classWavManager}{Wav\+Manager} {\bfseries wm}
+\item 
+\mbox{\Hypertarget{classWavConsole_ac86ec2cd3fa6a3f9ba04dd3fa9e0b804}\label{classWavConsole_ac86ec2cd3fa6a3f9ba04dd3fa9e0b804}} 
+\hyperlink{classWriteToCSV}{Write\+To\+C\+SV} {\bfseries wcsv}
+\item 
+\mbox{\Hypertarget{classWavConsole_a55c09e96cfa25fb73c6dfd963e5f61ef}\label{classWavConsole_a55c09e96cfa25fb73c6dfd963e5f61ef}} 
+std\+::vector$<$ \hyperlink{classCommand}{Command} $>$ {\bfseries commands}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWavConsole_af15680c1257375a6f687ad5c4c0b9b0c}\label{classWavConsole_af15680c1257375a6f687ad5c4c0b9b0c}} 
+\index{Wav\+Console@{Wav\+Console}!add\+Command@{add\+Command}}
+\index{add\+Command@{add\+Command}!Wav\+Console@{Wav\+Console}}
+\subsubsection{\texorpdfstring{add\+Command()}{addCommand()}}
+{\footnotesize\ttfamily void Wav\+Console\+::add\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{help\+Text }\end{DoxyParamCaption})}
+
+
+
+This function pushes a new command to the vector of commands. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the chat command. \\
+\hline
+{\em help\+Text} & Text to display when additional info is requested on the command. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWavConsole_ae5ee40c484223159f58d2758c0dba340}\label{classWavConsole_ae5ee40c484223159f58d2758c0dba340}} 
+\index{Wav\+Console@{Wav\+Console}!pull\+Filenames@{pull\+Filenames}}
+\index{pull\+Filenames@{pull\+Filenames}!Wav\+Console@{Wav\+Console}}
+\subsubsection{\texorpdfstring{pull\+Filenames()}{pullFilenames()}}
+{\footnotesize\ttfamily vector$<$ std\+::experimental\+::filesystem\+::path $>$ Wav\+Console\+::pull\+Filenames (\begin{DoxyParamCaption}\item[{std\+::string}]{directory }\end{DoxyParamCaption})}
+
+
+
+This function uses a directory\+\_\+iterator to get the names of every file in the user-\/inputted directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & User-\/inputted path to the directory of W\+A\+Vs to manipulate. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Wav\+Console.\+h\item 
+Wav\+Console.\+cpp\end{DoxyCompactItemize}
