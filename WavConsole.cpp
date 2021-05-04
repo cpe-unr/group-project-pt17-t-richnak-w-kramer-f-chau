@@ -30,6 +30,7 @@ cout << endl;
  * @brief This function uses a directory_iterator to get the names of every file in the user-inputted directory.
  * 
  * @param directory User-inputted path to the directory of WAVs to manipulate. 
+ * 
  */
 vector<std::experimental::filesystem::path> WavConsole::pullFilenames(string directory){
 
@@ -70,7 +71,7 @@ string METADATA_DESC[22] = {"Archive location", "Artist", "Commissioner of the w
 string directory;
 
 cout << "Welcome to the PT17 Wav Manager." << endl;
-cout << "Select a directory for the manager to manipulate by typing a full filepath. Please ensure all files in the directory are WAV files." << endl; //luxury todo: implement a way to check if the files are all WAVs, less luxury todo: exception handling for if they aren't.  
+cout << "Select a directory for the manager to manipulate by typing a full filepath. Please ensure all files in the directory are WAV files." << endl; 
 
 cin >> directory;
 vector<std::experimental::filesystem::path> filenames = pullFilenames(directory); 
@@ -88,8 +89,6 @@ string input;
 string helpQuery;
 string filename;
 string fieldname; 
-cout << filenames.size() << endl;
-cout << wm.wavs.size() << endl; 
 bool isQuit = false; 
  
 	while(isQuit == false){
@@ -118,7 +117,7 @@ bool isQuit = false;
 			}
 
 		if(!wasHelped){
-			cout << "Your input does not seem to match any of our commands. Please enter a valid command to receive additional information." << endl; //luxury todo: add something like this to the main while loop, or do a hideous elseif/else
+			cout << "Your input does not seem to match any of our commands. Please enter a valid command to receive additional information." << endl; 
 			}
 		}
 	}
@@ -178,11 +177,15 @@ bool isQuit = false;
 			IReadable* tomodify = wm.wavs[wavsIndex]; 
 			 
       	    if(auto * wFile = dynamic_cast<Wav<short>*>(tomodify)) {
-				cout << "Short cast" << endl; 
             	for(Processor * p: processorAdds){
 					cout << "Processing buffer" << endl;
+					if(wFile->wavHeader.numChannels == 1){
 					p -> processBuffer(wFile->buffer, wFile->getBufferSize());
-				} 
+						}
+					if(wFile->wavHeader.numChannels == 2){
+					p -> processStereoBuffer(wFile->buffer, wFile->getBufferSize());
+					}				
+					} 
 				cout << "Processing complete. To output a file with the results, enter the filename to write the output to (please ensure your output file does not match any existing input files). If you don't want to output, type 'done'." << endl;
 
 				string outputFile;
@@ -202,10 +205,14 @@ bool isQuit = false;
 			
          }//endif (wFile)
         	if(auto * wFile = dynamic_cast<Wav<unsigned char>*>(tomodify))  {
-				cout << "Char cast" << endl; 
 	    		for(Processor* p: processorAdds){
 					cout << "Processing buffer" << endl; 
+					if(wFile->wavHeader.numChannels == 1){
 					p -> processBuffer(wFile->buffer, wFile->getBufferSize());
+						}
+					if(wFile->wavHeader.numChannels == 2){
+					p -> processStereoBuffer(wFile->buffer, wFile->getBufferSize());
+					}	
 				}          
 				cout << "Processing complete. To output a file with the results, enter the filename to write the output to (please ensure your output file does not match any existing input files). If you don't want to output, type 'done'." << endl;
 				
@@ -216,7 +223,7 @@ bool isQuit = false;
 			if(outputFile != "done"){
 				cout << "Preparing to output file." << endl; 
 				for(string f : filenamesstr){
-					if(outputFile == f){ cout << "Your output file name matches an already existing oneone and is thus invalid." << endl; matches = true;}
+					if(outputFile == f){ cout << "Your output file name matches an already existing one and is thus invalid." << endl; matches = true;}
 				}//endfor
 				if(!matches){
 					cout << "Writing output file." << endl; 
@@ -251,7 +258,7 @@ bool isQuit = false;
 				cout << i+1 << ": " << METADATA_DESC[i] << endl; 
 			} 
 			cin >> chosen; 
-			cout << "Please enter the new value you want the chosen field to take." << endl; 
+			cout << "Please enter the new value you want the chosen field to take. Ensure that no non-alphanumeric characters (including spaces) are in your new value." << endl; 
 			cin >> fieldname; 
 			char infoidnew[4];
 			
@@ -263,36 +270,48 @@ bool isQuit = false;
 			cout << "Wav index selected" << endl; 
 
        		if(auto * wFile = dynamic_cast<Wav<short>*>(tomodify)) {
-				
-				bool hasMetadata;
-				for(List l : wFile->list){
-					char linfoid[4] = {l.infoID[0], l.infoID[1], l.infoID[2], l.infoID[3]}; 
-					cout << linfoid << endl;
-					if(linfoid == METADATA_CODES[chosen-1]){
-						 
-						hasMetadata = true;
-						cout << "To modify metadata." << endl; 
-						mod->modifyMetadata(&l, fieldname);
-						}	
-					} //addMetadataSection currently nonfunctional 
-		// if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);} 
-			wFile->writeFile(filename);
-		}
-			if(auto * wFile = dynamic_cast<Wav<unsigned char>*>(tomodify))  {
-				bool hasMetadata;
-				
-				for(List l : wFile->list){
 
+				bool hasMetadata = false;
+				int i = 0;
+				for(List l : wFile->list){
+					
 					char linfoid[4] = {l.infoID[0], l.infoID[1], l.infoID[2], l.infoID[3]}; 
 					cout << linfoid << endl;
-					if(linfoid == METADATA_CODES[chosen-1]){
+					if(linfoid == METADATA_CODES[chosen-1] && !hasMetadata){
 						hasMetadata = true;
-						cout << "To modify metadata." << endl; 
+						cout << "To modify metadata." << endl;
+						wFile->list.erase(wFile->list.begin()+i); 
 						List* ltemp = mod->modifyMetadata(&l, fieldname);
 						l = *ltemp;
 						cout << l.info << endl; 
+						wFile->list.push_back(l);
 						wFile->writeFile(filename);
-						}	
+						}
+						i++; 	
+					} //addMetadataSection currently nonfunctional
+		// if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);}
+		
+			
+		}
+				
+			if(auto * wFile = dynamic_cast<Wav<unsigned char>*>(tomodify))  {
+				bool hasMetadata = false;
+				int i = 0;
+				for(List l : wFile->list){
+					
+					char linfoid[4] = {l.infoID[0], l.infoID[1], l.infoID[2], l.infoID[3]}; 
+					cout << linfoid << endl;
+					if(linfoid == METADATA_CODES[chosen-1] && !hasMetadata){
+						hasMetadata = true;
+						cout << "Modifying metadata." << endl;
+						wFile->list.erase(wFile->list.begin()+i); 
+						List* ltemp = mod->modifyMetadata(&l, fieldname);
+						l = *ltemp;
+						cout << l.info << endl; 
+						wFile->list.push_back(l);
+						wFile->writeFile(filename);
+						}
+						i++; 	
 					} //addMetadataSection currently nonfunctional
 		// if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);}
 		
@@ -300,15 +319,12 @@ bool isQuit = false;
 		}
 
 	}
-
-//todo: map filename input to filename vector then to Wav vector; take field input, parse through list of infoIDs, parse through List vector, call Fiorina's class. Exceptions: bad file to edit (doesn't match), bad field name
 }
 
 	if(input == "writecsv"){
 		cout << "Writing CSV file. Enter a filename to give the output file." << endl;
 		cin >> filename;
 		wcsv.writeDataToFile(filename, filenamesstr, wm.wavs); 
-//todo: figure out template stuff. exceptions?: given filename matches existing wav... for some reason
 	}
 } //end while
 
