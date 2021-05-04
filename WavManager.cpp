@@ -7,7 +7,7 @@
 
 
 	/**
-	 * @breif Creates Wav objects and calls the read function for each file in the filenames vector
+	 * @brief Creates Wav objects and calls the read function for each file in the filenames vector
 	 *
 	 * @param filenames - vector of names of .wav files
 	 */

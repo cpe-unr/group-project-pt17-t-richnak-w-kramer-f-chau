@@ -133,7 +133,7 @@ processorAdds.push_back(ng);
 break;
 }
 case 3:{
-cout << "Adding echo. Please enter the delay (in terms of samples; 40000 samples roughly corresponds to one second) to echo after." << endl;
+cout << "Adding echo. Please enter the delay (in terms of samples; 44000 samples roughly corresponds to one second) to echo after." << endl;
 cin >> processorParam;
 Echo* ec = new Echo(processorParam);
 processorAdds.push_back(ec);
@@ -241,8 +241,9 @@ cout << "Wav index selected" << endl;
 		hasMetadata = true;
 		mod->modifyMetadata(&l, fieldname);
 		}	
-		}
-		if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);}
+		} //addMetadataSection currently nonfunctional 
+		// if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);} 
+wFile->writeFile(filename);
 }
 if(auto * wFile = dynamic_cast<Wav<unsigned char>*>(tomodify))  {
 		bool hasMetadata;
@@ -252,9 +253,11 @@ if(auto * wFile = dynamic_cast<Wav<unsigned char>*>(tomodify))  {
 		hasMetadata = true;
 		mod->modifyMetadata(&l, fieldname);
 		}	
-		}
-		if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);}
+		} //addMetadataSection currently nonfunctional
+		// if(!hasMetadata){mod->addMetadataSection(wFile->list, infoidnew, fieldname);}
+wFile->writeFile(filename);
 }
+
 }
 
 //todo: map filename input to filename vector then to Wav vector; take field input, parse through list of infoIDs, parse through List vector, call Fiorina's class. Exceptions: bad file to edit (doesn't match), bad field name

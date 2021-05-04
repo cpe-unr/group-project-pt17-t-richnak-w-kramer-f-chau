@@ -19,7 +19,7 @@ void Modify::modifyMetadata(List* metadataObj, std::string newMetadataString){
  * @param newInfoID 
  * @param newInfo 
  */
-void Modify::addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo){
+/* void Modify::addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo){
 	
 	list.push_back(List());
 	int i = list.size() - 1;
@@ -27,6 +27,6 @@ void Modify::addMetadataSection(std::vector<List> list, char newInfoID[4], std::
 	list[i].infoSize = newInfo.length();
 	list[i].info = &newInfo[0];
 	
-}
+} */ 
 	
 	
