@@ -3,6 +3,7 @@ WavProcessor: main.cpp WavManager.o WavConsole.o Wav.o Modify.o WriteToCSV.o Com
 
 WavManager.o: WavManager.cpp WavManager.h
 	g++ -c -std=c++17 WavManager.cpp
+
 Wav.o: Wav.cpp Wav.h
 	g++ -c -std=c++17 Wav.cpp
 

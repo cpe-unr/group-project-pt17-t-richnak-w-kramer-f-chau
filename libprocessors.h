@@ -2,7 +2,9 @@
 #define LIBPROCESSORS_H
 
 #include "Processor.h"
-
+#include "Normalization.h"
+#include "Echo.h"
+#include "NoiseGate.h"
 
 class libprocessor{
 

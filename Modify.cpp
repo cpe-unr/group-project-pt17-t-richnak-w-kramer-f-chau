@@ -19,12 +19,13 @@ void Modify::modifyMetadata(List* metadataObj, std::string newMetadataString){
  * @param newInfoID 
  * @param newInfo 
  */
-void Modify::addMetadataSection(std::vector<List> *list, char newInfoID[4], std::string newInfo){
-	List *newList = new List; //Either this or add constructor to List.h to avoid using pointer
-	list->push_back(newList);
-	newList->infoID = newInfoID;
-	newList->infoSize = newInfo.length();
-	newList->info = &newInfo[0];
+void Modify::addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo){
+	
+	list.push_back(List());
+	int i = list.size() - 1;
+	list[i].infoID = newInfoID;
+	list[i].infoSize = newInfo.length();
+	list[i].info = &newInfo[0];
 	
 }
 	
