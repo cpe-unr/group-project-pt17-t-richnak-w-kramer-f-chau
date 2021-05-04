@@ -6,18 +6,18 @@
 #include <experimental/filesystem>
 #include "Command.h"
 #include "WavManager.h"
-// #include "WriteToCSV.h" uncomment and add .o back to the makefile when fixed 
+#include "WriteToCSV.h"  
 class WavConsole{  
 public: 
 WavManager wm; 
-// WriteToCSV wcsv; uncomment when writetocsv fixed  
+WriteToCSV wcsv;  
 std::vector<Command> commands;
 void addCommand(std::string name, std::string helpText);
 void processWav();
 void editMetadata();
 void writeCSV();
 void printCommands();
-std::vector<std::string> pullFilenames(std::string directory);
+std::vector<std::experimental::filesystem::path> pullFilenames(std::string directory);
 void runConsole();
 };
 #endif

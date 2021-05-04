@@ -6,7 +6,7 @@
  * @param metadataObj object that will be modified
  * @param newMetadataString User Input
  */
-void Modify::modifyMetadata(List* metadataObj, string newMetadataString){
+void Modify::modifyMetadata(List* metadataObj, std::string newMetadataString){
 	metadataObj->infoSize = newMetadataString.length();
 	metadataObj->info = &newMetadataString[0];
 }
@@ -19,9 +19,9 @@ void Modify::modifyMetadata(List* metadataObj, string newMetadataString){
  * @param newInfoID 
  * @param newInfo 
  */
-void addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo){
+void Modify::addMetadataSection(std::vector<List> list, char newInfoID[4], std::string newInfo){
 	List *newList = new List; //Either this or add constructor to List.h to avoid using pointer
-	list.push_back(newList);
+	list.push_back(newList&);
 	newList->infoID = newInfoID;
 	newList->infoSize = newInfo.length();
 	newList->info = &newInfo[0];
